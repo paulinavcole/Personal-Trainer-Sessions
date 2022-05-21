@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+/* Style the navbar */
+nav {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    border: solid black 10px;
+    background-color: black;
+}
+  
+/* Navbar links */
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 3em;
+    border: solid black 10px;
+    background-color: rgba(235,252,244,255)
+}   
+
+a {
+    font-size: 1.6em;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    transition: color 1s, background-color 0.5s;
+}
+  
+a:hover {
+    background-color: pink;
+    box-shadow: #d3d3d3;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+ul {
+    font-size: 1.3em;
+    list-style: none;
+    margin:5px;
+    border:20px
+}
+
+ul li {
+    margin: 10px
+}
+
+button {
+    font-size: 1.4em;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: black;
+    color:white;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px
+}
+
+#message-header {
+    text-align: center;
+}

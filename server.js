@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const {setupDB, Client, Instructor, Session} = require('./db');
 
+app.use('/assets', express.static('assets'))
+
 app.get('/', async(req, res, next) => {
     try {
         const[clients, instructors, sessions] = await Promise.all([
@@ -15,9 +17,10 @@ app.get('/', async(req, res, next) => {
         <html>
         <head>
             <title>Fitclub Personal Trainer Sessions</title>
+            <link rel='stylesheet' href='/assets/styles.css'/>
         </head>
         <body>
-            <h1>Fitclub Personal Trainer Sessions</h1>
+            <header> <img src='https://c.tenor.com/i2i-RW59w70AAAAC/gym-pusheen.gif'/> FitClub Personal Training Sessions</header>
             <h2>Clients</h2>
             <ul>
             ${
