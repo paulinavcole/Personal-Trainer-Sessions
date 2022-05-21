@@ -3,7 +3,7 @@
 - name your database **acme_express_seq** please
 - make sure to sync and seed your data, so that we can review the application!
 - make sure to have a start:dev script and include all your dependences in your package.json
-- 
+
 - pick a topic you are interested in.
   - sports
   - entertainment
