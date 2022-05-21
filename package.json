@@ -1,0 +1,30 @@
+{
+  "name": "dealers_choice_express_seq",
+  "version": "1.0.0",
+  "description": "- name your database **acme_express_seq** please - make sure to sync and seed your data, so that we can review the application! - make sure to have a start:dev script and include all your dependences in your package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev" : "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulinavcole/dealers_choice_express_seq.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulinavcole/dealers_choice_express_seq/issues"
+  },
+  "homepage": "https://github.com/paulinavcole/dealers_choice_express_seq#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "method-override": "^3.0.0",
+    "pg": "^8.7.3",
+    "sequelize": "^6.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
