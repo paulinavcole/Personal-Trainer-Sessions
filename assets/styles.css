@@ -26,3 +26,15 @@ ul {
 ul li {
     margin: 10px
 }
+  
+  .sessions {
+    font-size: 3em;
+    border: solid black 10px;
+    background-color: rgb(250,237,226);
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+  }
+
+
+  
