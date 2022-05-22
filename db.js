@@ -6,6 +6,7 @@ const Client = conn.define('client', {
     name: {
         type: STRING,
         allowNull: false,
+        unique: true,
         validate: {
             notEmpty: true
         }
@@ -16,6 +17,7 @@ const Instructor = conn.define('instructor', {
     name: {
         type: STRING,
         allowNull: false,
+        unique: true,
         validate: {
             notEmpty: true
         }

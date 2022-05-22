@@ -45,9 +45,15 @@ app.post('/clients', async(req, res, next) => {
         await Client.create(req.body);
         res.redirect('/')
     }
-    catch(ex) {
-        next(ex)
-    }
+    catch (ex) {
+        if (ex.name === 'SequelizeUniqueConstraintError') {
+            res.status(403)
+            res.send({ status: 'error', message: "User already exists"});
+        } else {
+            res.status(500)
+            res.send({ status: 'error', message: "Something went wrong"});
+        }
+    }   
 });
 
 app.get('/', async(req, res, next) => {
