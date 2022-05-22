@@ -2,7 +2,30 @@ const express = require('express');
 const app = express();
 const {setupDB, Client, Instructor, Session} = require('./db');
 
-app.use('/assets', express.static('assets'))
+app.use('/assets', express.static('assets'));
+app.use(express.urlencoded({extended:false}));
+app.use(require('method-override')('_method'))
+
+app.post('/sessions', async(req, res, next) => {
+    try {
+        await Session.create(req.body);
+        res.redirect('/')
+    }
+    catch(ex) {
+        next(ex)
+    }
+});
+
+app.delete('/sessions/:id', async(req, res, next) =>{
+    try {
+        const session = await Session.findByPk(req.params.id);
+        await session.destroy();
+        res.redirect('/');
+    }
+    catch(ex) {
+        next(ex)
+    }
+});
 
 app.get('/', async(req, res, next) => {
     try {
@@ -48,6 +71,9 @@ app.get('/', async(req, res, next) => {
                         return `
                         <li>
                         ${session.client.name} trains with ${session.instructor.name} on ${session.sessionDate}
+                        <form method='POST' action='/sessions/${session.id}?_method=DELETE'>
+                            <button>Remove</button>
+                        </form>
                         </li>
                         `;
                     }).join('')
