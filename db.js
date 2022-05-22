@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const { STRING, INTEGER, DATE } = Sequelize;
+const { STRING, INTEGER, DATEONLY } = Sequelize;
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/clients_instructors_sessions');
 
 const Client = conn.define('client', {
@@ -32,7 +32,7 @@ const Session = conn.define('session', {
         allowNull: false
     },
     sessionDate : {
-        type: DATE,
+        type: DATEONLY,
         allowNull:  false
     }
 });

@@ -17,6 +17,18 @@ app.delete('/sessions/:id', async(req, res, next) =>{
     }
 });
 
+app.put('/sessions/:id', async (req, res, next) => {
+    try { Session.update(
+        {sessionDate: req.body.sessionDate}, 
+        {returning: true, where: {id: req.params.id}})
+        res.redirect('/')
+    }
+    catch(ex) {
+        next(ex)
+    }
+})
+
+
 app.post('/sessions', async(req, res, next) => {
     try {
         await Session.create(req.body);
@@ -26,6 +38,7 @@ app.post('/sessions', async(req, res, next) => {
         next(ex)
     }
 });
+
 
 app.post('/clients', async(req, res, next) => {
     try {
@@ -89,6 +102,10 @@ app.get('/', async(req, res, next) => {
                             ${session.client.name} trains with ${session.instructor.name} on ${session.sessionDate}
                             <form method='POST' action='/sessions/${session.id}?_method=DELETE'>
                                 <button>Remove</button>
+                            </form>
+                            <form method='POST' action='/sessions/${session.id}?_method=PUT'>
+                                <input name='sessionDate' />
+                                <button>Update Date of Session</button>
                             </form>
                             </li>
                             `;
