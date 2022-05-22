@@ -43,14 +43,14 @@ Session.belongsTo(Instructor);
 const setupDB = async() => {
     await conn.sync({force: true});
     const [gleb, catherine, karin, danielle, rahima, demetrius, rodney, melissa] = await Promise.all([
-        Client.create({name: 'gleb'}),
-        Client.create({name: 'catherine'}),
-        Client.create({name: 'karin'}),
-        Client.create({name: 'danielle'}),
-        Instructor.create({name: 'rahima'}),
-        Instructor.create({name: 'demetrius'}),
-        Instructor.create({name: 'rodney'}),
-        Instructor.create({name: 'melissa'}),
+        Client.create({name: 'Gleb'}),
+        Client.create({name: 'Catherine'}),
+        Client.create({name: 'Karin'}),
+        Client.create({name: 'Danielle'}),
+        Instructor.create({name: 'Rahima'}),
+        Instructor.create({name: 'Demetrius'}),
+        Instructor.create({name: 'Rodney'}),
+        Instructor.create({name: 'Melissa'}),
     ]);
 
     await Promise.all([

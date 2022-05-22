@@ -15,48 +15,73 @@ app.get('/', async(req, res, next) => {
         ]);
         res.send(`
         <html>
-        <head>
-            <title>Fitclub Personal Trainer Sessions</title>
-            <link rel='stylesheet' href='/assets/styles.css'/>
-        </head>
-        <body>
-            <header> <img src='https://c.tenor.com/i2i-RW59w70AAAAC/gym-pusheen.gif'/> FitClub Personal Training Sessions</header>
-            <h2>Clients</h2>
-            <ul>
-            ${
-                clients.map(client => {
-                    return `
-                    <li>${client.name}</li>
-                  `;
-                }).join('')
-            }
-            </ul>
-            <h2>Trainers</h2>
-            <ul>
-            ${
-                instructors.map(instructor => {
-                    return `
-                    <li>${instructor.name}</li>
+            <head>
+                <title>Fitclub Personal Trainer Sessions</title>
+                <link rel='stylesheet' href='/assets/styles.css'/>
+            </head>
+            <body>
+                <header> <img src='https://c.tenor.com/i2i-RW59w70AAAAC/gym-pusheen.gif'/> FitClub Personal Training Sessions</header>
+                <h2>Clients</h2>
+                <ul>
+                ${
+                    clients.map(client => {
+                        return `
+                        <li>${client.name}</li>
                     `;
-                }).join('')
-            }
-            </ul>
-            <h2>Currently Booked Sessions</h2>
-            <ul>
-            ${
-                sessions.map(session => {
-                    return `
-                    <li>
-                    ${session.client.name} trains with ${session.instructor.name} on ${session.sessionDate}
-                    </li>
-                    `;
-                }).join('')
-            }
-            </ul>
-        </body>
+                    }).join('')
+                }
+                </ul>
+                <h2>Trainers</h2>
+                <ul>
+                ${
+                    instructors.map(instructor => {
+                        return `
+                        <li>${instructor.name}</li>
+                        `;
+                    }).join('')
+                }
+                </ul>
+                <h2>Currently Booked Sessions</h2>
+                <ul>
+                ${
+                    sessions.map(session => {
+                        return `
+                        <li>
+                        ${session.client.name} trains with ${session.instructor.name} on ${session.sessionDate}
+                        </li>
+                        `;
+                    }).join('')
+                }
+                </ul>
+                <form method='POST' action='/sessions'>
+                    <select name='clientID'>
+                    ${
+                        clients.map (client => {
+                            return `
+                            <option value='${client.id}'>
+                            ${client.name}
+                            </option>
+                            `;
+                        }).join('')
+                    }
+                    </select>
+                    <select name='instructor.id'>
+                    ${
+                        instructors.map(instructor => {
+                            return `
+                            <option value='${instructor.id}'>
+                                ${instructor.name}
+                            </option>
+                            `;
+                        }).join('')
+                    }
+                    </select>
+                    <input name='sessionDate' />
+                    <button>Book New Session</button>
+                </form>
+            </body>
         </html>
-        `)
-
+    `)
     }
     catch(ex) {
         next(ex);
