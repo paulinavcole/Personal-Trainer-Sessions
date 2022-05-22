@@ -80,18 +80,18 @@ app.get('/', async(req, res, next) => {
                 }
                 </ul>
                 <form method='POST' action='/sessions'>
-                    <select name='clientID'>
+                    <select name='clientId'>
                     ${
                         clients.map (client => {
                             return `
                             <option value='${client.id}'>
                             ${client.name}
                             </option>
-                            `;
+                          `;
                         }).join('')
                     }
                     </select>
-                    <select name='instructor.id'>
+                    <select name='instructorId'>
                     ${
                         instructors.map(instructor => {
                             return `
