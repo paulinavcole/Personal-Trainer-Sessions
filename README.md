@@ -5,4 +5,5 @@ A workout booking app that fulfills:
 - utilizes a start:dev script and includes all dependences in package.json
 - creates an express application which displays data stored in a postgres database using sequelize
 - uses a static route for any css files
-- has ability to insert/delete data
+- CRUD application: ability to Create, Read, Update, Delete data
+
