@@ -6,6 +6,7 @@ app.use('/assets', express.static('assets'));
 app.use(express.urlencoded({extended:false}));
 app.use(require('method-override')('_method'))
 
+//ability to delete a session
 app.delete('/sessions/:id', async(req, res, next) =>{
     try {
         const session = await Session.findByPk(req.params.id);
@@ -17,6 +18,7 @@ app.delete('/sessions/:id', async(req, res, next) =>{
     }
 });
 
+//abilite to update session dates
 app.put('/sessions/:id', async (req, res, next) => {
     try { Session.update(
         {sessionDate: req.body.sessionDate}, 
@@ -40,6 +42,7 @@ app.post('/sessions', async(req, res, next) => {
 });
 
 
+//add client with error handling if client already exists
 app.post('/clients', async(req, res, next) => {
     try {
         await Client.create(req.body);
