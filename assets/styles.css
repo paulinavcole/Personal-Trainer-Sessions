@@ -13,9 +13,13 @@ header {
     text-align: center;
     font-size: 3em;
     border: solid black 10px;
-    background-color: rgb(250,237,226)
+    background-color: rgb(250,237,226);
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }   
 
+form > h3 {
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 ul {
     font-size: 1.3em;
     list-style: none;
@@ -27,14 +31,26 @@ ul li {
     margin: 10px
 }
   
-  .sessions {
+.sessions {
     font-size: 3em;
     border: solid black 10px;
     background-color: rgb(250,237,226);
     margin: 1rem;
     padding: 1rem;
     display: flex;
-  }
+}
+
+button {
+    background-color: black;
+    color: white;
+    font-size: .5em;
+}
+
+form > select,input {
+    background-color: black;
+    color: white;
+    font-size: .5em;
+}
 
 
   

@@ -120,6 +120,7 @@ app.get('/', async(req, res, next) => {
                     </ul>
                     <div class='sessions'>
                         <form method='POST' action='/sessions'>
+                        <h3>Book a Personal Training Session</h2>
                             <select name='clientId'>
                             ${
                                 clients.map (client => {

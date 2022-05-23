@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const { STRING, INTEGER, DATEONLY } = Sequelize;
-const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/clients_instructors_sessions');
+const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_express_seq');
 
 const Client = conn.define('client', {
     name: {
