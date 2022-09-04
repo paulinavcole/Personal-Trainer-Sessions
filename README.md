@@ -1,4 +1,4 @@
-# dealers_choice_express_seq
+# Workout Booking Express App
 
 A workout booking app that fulfills:
 - syncing and seeding data
